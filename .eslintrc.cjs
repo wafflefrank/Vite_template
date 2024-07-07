@@ -14,7 +14,11 @@ module.exports = {
   },
   rules: {
     // 你可以在這裡添加或覆蓋規則
-    'no-console': 'off' // 例如，允許使用 console
+    'no-console': 'off', // 例如，允許使用 console
+    'import/prefer-default-export': 'off',
+    'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+    'max-len': ['error', { code: 200 }],
     // 'import/no-extraneous-dependencies': [
     //   'error',
     //   {
