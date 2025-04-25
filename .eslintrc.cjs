@@ -4,13 +4,19 @@ require('@rushstack/eslint-patch/modern-module-resolution')
 module.exports = {
   root: true,
   extends: [
-    'airbnb-base',
     'plugin:vue/vue3-essential',
-    '@vue/eslint-config-prettier',
-    'plugin:prettier/recommended'
+    'airbnb-base',
+    'plugin:prettier/recommended',
+    '@vue/eslint-config-prettier'
   ],
+  env: {
+    browser: true,
+    node: true,
+    es2021: true
+  },
   parserOptions: {
-    ecmaVersion: 'latest'
+    ecmaVersion: 'latest',
+    sourceType: 'module'
   },
   rules: {
     // 你可以在這裡添加或覆蓋規則
@@ -18,12 +24,11 @@ module.exports = {
     'import/prefer-default-export': 'off',
     'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-    'max-len': ['error', { code: 200 }],
-    // 'import/no-extraneous-dependencies': [
-    //   'error',
-    //   {
-    //     devDependencies: ['**/*.test.js', '**/*.spec.js', '**/vite.config.js']
-    //   }
-    // ]
+    'max-len': 0,
+    'no-control-regex': 'off'
+  },
+  globals: {
+    YT: 'readonly',
+    bootstrap: 'readonly'
   }
 }
